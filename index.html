@@ -4,80 +4,172 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="개인 이력서">
+    <meta name="theme-color" content="#f3f2ed">
     <title>이름 — 이력서</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+KR:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    >
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
-    <main class="resume">
-      <header class="intro">
-        <div>
+    <main class="page">
+      <aside class="profile">
+        <div class="profile-top">
+          <p class="kicker"><span></span> RESUME / 2026</p>
           <h1>[이름]</h1>
-          <p class="role">[직무]</p>
+          <p class="role">[Full-stack Engineer]</p>
+          <p class="bio">
+            제품의 처음부터 운영까지 책임지며<br>
+            복잡한 문제를 단순하게 해결합니다.
+          </p>
         </div>
-        <address>
-          <a href="mailto:hello@example.com">hello@example.com</a>
-          <a href="https://github.com/username">github.com/username</a>
-        </address>
-      </header>
 
-      <p class="summary">
-        어떤 문제를 잘 해결하는 개발자인지 두세 문장으로 적습니다. 경력 전체를 설명하기보다
-        지금의 강점과 앞으로 하고 싶은 일을 간결하게 보여줍니다.
-      </p>
+        <div class="profile-bottom">
+          <nav aria-label="연락처">
+            <a href="mailto:hello@example.com">Email <span>↗</span></a>
+            <a href="https://github.com/username">GitHub <span>↗</span></a>
+            <a href="https://linkedin.com/in/username">LinkedIn <span>↗</span></a>
+          </nav>
+          <p>[Seoul, South Korea]</p>
+        </div>
+      </aside>
 
-      <section>
-        <h2>경력</h2>
-        <article class="item">
-          <div class="item-head">
-            <div>
-              <h3>[회사명]</h3>
-              <p>[직무명]</p>
-            </div>
-            <time>[2023.00 — 현재]</time>
+      <div class="content">
+        <section class="statement" aria-labelledby="statement-title">
+          <p class="section-label">PROFILE</p>
+          <h2 id="statement-title">
+            [경험을 나열하기보다,<br>
+            <em>어떤 개발자인지</em> 보여주는 한 문장]
+          </h2>
+          <p>
+            주요 도메인과 경력의 방향을 2~3문장으로 요약합니다. 무엇을 만들었는지보다
+            어떤 문제를 맡았고 어떻게 제품에 기여했는지 중심으로 적습니다.
+          </p>
+        </section>
+
+        <section aria-labelledby="experience-title">
+          <div class="section-head">
+            <p class="section-label">EXPERIENCE</p>
+            <span>01</span>
           </div>
-          <ul>
-            <li>맡은 문제와 해결 과정, 결과를 한 문장으로 적습니다.</li>
-            <li>직접 주도한 일과 만든 변화를 구체적으로 적습니다.</li>
-            <li>필요하면 수치로 설명할 수 있는 성과를 한 줄 덧붙입니다.</li>
-          </ul>
-        </article>
-      </section>
 
-      <section>
-        <h2>주요 프로젝트</h2>
-        <div class="project-list">
-          <article class="project">
-            <div>
-              <h3>[프로젝트 이름]</h3>
-              <span>[역할 · 기술]</span>
+          <article class="experience-item">
+            <div class="meta">
+              <time>[2023 — 현재]</time>
+              <span>[3년]</span>
             </div>
-            <p>무엇을 왜 만들었고, 어떤 결과가 있었는지 두 문장 안으로 적습니다.</p>
-          </article>
-          <article class="project">
-            <div>
-              <h3>[프로젝트 이름]</h3>
-              <span>[역할 · 기술]</span>
+            <div class="experience-body">
+              <h3>[회사명]</h3>
+              <p class="position">[직무명]</p>
+              <p class="description">
+                회사와 제품, 담당 범위를 한 문장으로 소개합니다.
+              </p>
+              <ul>
+                <li>가장 임팩트가 컸던 문제와 해결 결과</li>
+                <li>직접 주도한 제품 또는 기술적 변화</li>
+                <li>숫자로 설명할 수 있는 개선 성과</li>
+              </ul>
             </div>
-            <p>복잡한 구현 설명보다 직접 해결한 문제와 기여한 부분을 적습니다.</p>
           </article>
-        </div>
-      </section>
 
-      <section class="details">
-        <div>
-          <h2>기술</h2>
-          <p>[React, TypeScript, Django, AWS]</p>
-        </div>
-        <div>
-          <h2>학력</h2>
-          <p>[학교 · 전공 · 졸업 연도]</p>
-        </div>
-      </section>
+          <article class="experience-item">
+            <div class="meta">
+              <time>[2020 — 2023]</time>
+              <span>[3년]</span>
+            </div>
+            <div class="experience-body">
+              <h3>[이전 회사명]</h3>
+              <p class="position">[직무명]</p>
+              <p class="description">
+                이전 경력에서 맡았던 역할과 얻은 전문성을 간결하게 적습니다.
+              </p>
+            </div>
+          </article>
+        </section>
 
-      <footer>
-        <span>마지막 업데이트 [2026.00]</span>
-        <a href="mailto:hello@example.com">연락하기</a>
-      </footer>
+        <section aria-labelledby="work-title">
+          <div class="section-head">
+            <p class="section-label">SELECTED WORK</p>
+            <span>02</span>
+          </div>
+
+          <div class="work-list">
+            <article class="work-item">
+              <span class="work-number">01</span>
+              <div>
+                <h3>[대표 프로젝트]</h3>
+                <p>해결한 문제와 직접 기여한 부분을 한 문장으로 적습니다.</p>
+                <span class="tags">[PRODUCT · FRONTEND · BACKEND]</span>
+              </div>
+              <span class="arrow">↗</span>
+            </article>
+            <article class="work-item">
+              <span class="work-number">02</span>
+              <div>
+                <h3>[대표 프로젝트]</h3>
+                <p>기술 선택보다 사용자와 제품에 만든 변화를 설명합니다.</p>
+                <span class="tags">[AI · DATA · INFRA]</span>
+              </div>
+              <span class="arrow">↗</span>
+            </article>
+            <article class="work-item">
+              <span class="work-number">03</span>
+              <div>
+                <h3>[대표 프로젝트]</h3>
+                <p>프로젝트의 범위와 결과를 짧고 구체적으로 적습니다.</p>
+                <span class="tags">[WEB · PLATFORM]</span>
+              </div>
+              <span class="arrow">↗</span>
+            </article>
+          </div>
+        </section>
+
+        <section aria-labelledby="skills-title">
+          <div class="section-head">
+            <p class="section-label">CAPABILITIES</p>
+            <span>03</span>
+          </div>
+          <div class="capabilities">
+            <div>
+              <h3>Frontend</h3>
+              <p>[React]<br>[TypeScript]<br>[Web Platform]</p>
+            </div>
+            <div>
+              <h3>Backend</h3>
+              <p>[Django]<br>[PostgreSQL]<br>[API Design]</p>
+            </div>
+            <div>
+              <h3>Infra &amp; Domain</h3>
+              <p>[AWS]<br>[CI/CD]<br>[Domain Knowledge]</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="education" aria-labelledby="education-title">
+          <div class="section-head">
+            <p class="section-label">EDUCATION</p>
+            <span>04</span>
+          </div>
+          <div class="education-row">
+            <div>
+              <h3>[학교명]</h3>
+              <p>[전공 · 학위]</p>
+            </div>
+            <time>[2013 — 2020]</time>
+          </div>
+        </section>
+
+        <footer>
+          <p>Let’s build something useful.</p>
+          <div>
+            <span>LAST UPDATED [2026.00]</span>
+            <a href="mailto:hello@example.com">GET IN TOUCH ↗</a>
+          </div>
+        </footer>
+      </div>
     </main>
   </body>
 </html>
