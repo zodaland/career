@@ -36,7 +36,16 @@ nav { display: flex; gap: 22px; }
 nav a { color: var(--muted); font-size: 12px; transition: color .2s; }
 nav a:hover { color: var(--accent); }
 
-.hero { padding: 112px 0 128px; }
+.hero { padding: 88px 0 112px; }
+.hero-meta { display: flex; align-items: flex-end; justify-content: space-between; }
+.hero-meta img {
+  width: 96px;
+  height: 96px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  object-fit: cover;
+  filter: saturate(.85) contrast(1.04);
+}
 .status {
   display: flex;
   align-items: center;
@@ -57,15 +66,15 @@ nav a:hover { color: var(--accent); }
 }
 
 h1 {
-  margin: 36px 0 34px;
-  font-size: clamp(42px, 7vw, 66px);
+  margin: 42px 0 30px;
+  font-size: clamp(38px, 6vw, 54px);
   font-weight: 600;
   line-height: 1.12;
   letter-spacing: -.06em;
 }
 
 h1 em { color: var(--accent); font-style: normal; }
-.intro { max-width: 660px; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.8; }
+.intro { max-width: 660px; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.85; }
 
 .resume > section:not(.hero) {
   padding: 88px 0;
@@ -133,8 +142,7 @@ li::before { content: "—"; position: absolute; left: 0; color: var(--accent); 
 .education h3 { font-size: 20px; }
 .education p { margin: 8px 0 0; color: var(--muted); font-size: 13px; }
 
-footer { padding: 112px 0 48px; border-top: 1px solid var(--ink); }
-footer > p { margin: 0 0 82px; font-size: clamp(38px, 6vw, 58px); font-weight: 600; line-height: 1.1; letter-spacing: -.055em; }
+footer { padding: 54px 0 48px; border-top: 1px solid var(--ink); }
 footer > div { display: flex; justify-content: space-between; padding-top: 18px; border-top: 1px solid var(--line); }
 footer a { color: var(--accent); font-family: "IBM Plex Mono", monospace; font-size: 10px; }
 
@@ -142,7 +150,8 @@ footer a { color: var(--accent); font-family: "IBM Plex Mono", monospace; font-s
   .resume { width: min(100% - 32px, 820px); }
   header { align-items: flex-start; flex-direction: column; justify-content: center; gap: 15px; }
   nav { gap: 18px; }
-  .hero { padding: 82px 0 96px; }
+  .hero { padding: 68px 0 86px; }
+  .hero-meta img { width: 78px; height: 78px; }
   .resume > section:not(.hero) { padding: 68px 0; }
   .experience-head { flex-direction: column; gap: 12px; }
   .skills > div { grid-template-columns: 1fr; gap: 8px; }
