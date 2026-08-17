@@ -1,0 +1,146 @@
+:root {
+  --ink: #171714;
+  --muted: #6f6c63;
+  --paper: #f4f1ea;
+  --line: #d6d1c6;
+  --accent: #e4552d;
+  --card: #ebe7de;
+  font-family: "DM Sans", "Noto Sans KR", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); }
+a { color: inherit; text-decoration: none; }
+.shell { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
+
+.nav {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+.wordmark { font-size: 20px; font-weight: 700; letter-spacing: -.04em; }
+.wordmark span { color: var(--accent); }
+.nav nav { display: flex; gap: 30px; font-size: 14px; font-weight: 500; }
+.nav nav a { transition: color .2s; }
+.nav nav a:hover { color: var(--accent); }
+
+.hero { min-height: 680px; padding: 105px 0 72px; }
+.eyebrow, .section-label { color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: .15em; }
+.hero h1 {
+  margin: 27px 0 58px;
+  max-width: 930px;
+  font-size: clamp(62px, 9vw, 124px);
+  font-weight: 600;
+  line-height: .95;
+  letter-spacing: -.075em;
+}
+.hero h1 em { color: var(--accent); font-family: Georgia, serif; font-weight: 400; }
+.hero-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; }
+.hero-bottom p { margin: 0; max-width: 650px; color: var(--muted); font-size: 17px; line-height: 1.8; }
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  min-width: 190px;
+  padding: 17px 20px;
+  color: white;
+  background: var(--ink);
+  font-size: 14px;
+  transition: background .2s, transform .2s;
+}
+.button:hover { background: var(--accent); transform: translateY(-2px); }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+.stats div { padding: 30px 22px; border-right: 1px solid var(--line); }
+.stats div:first-child { padding-left: 0; }
+.stats div:last-child { border-right: 0; }
+.stats strong { display: block; font-size: 26px; letter-spacing: -.04em; }
+.stats span { display: block; margin-top: 8px; color: var(--muted); font-size: 12px; text-transform: uppercase; }
+
+.section {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 45px;
+  padding: 130px 0;
+  border-bottom: 1px solid var(--line);
+}
+.section-label { margin: 8px 0 0; }
+.section h2 { margin: 0; font-size: clamp(38px, 5vw, 66px); line-height: 1.12; letter-spacing: -.055em; }
+.about > div { max-width: 800px; }
+.about .lead { margin: 50px 0 24px; color: var(--ink); font-size: 23px; line-height: 1.65; }
+.about p:last-child { max-width: 700px; color: var(--muted); font-size: 16px; line-height: 1.8; }
+
+.experience { background: var(--ink); color: var(--paper); box-shadow: 0 0 0 100vmax var(--ink); clip-path: inset(0 -100vmax); }
+.experience .section-label { color: #ef7957; }
+.job-heading { display: flex; align-items: flex-start; justify-content: space-between; padding-bottom: 35px; border-bottom: 1px solid #3b3b36; }
+.job-heading h2 { font-size: clamp(44px, 6vw, 76px); }
+.job-heading p { margin: 10px 0 0; color: #aaa79f; font-size: 17px; }
+.job-heading time { margin-top: 12px; color: #aaa79f; font-size: 12px; letter-spacing: .1em; }
+.job-grid { display: grid; grid-template-columns: 1fr 1.35fr; gap: 70px; padding-top: 42px; }
+.job-grid > p { margin: 0; color: #aaa79f; line-height: 1.8; }
+.job-grid ul { margin: 0; padding: 0; list-style: none; }
+.job-grid li { padding: 17px 0; border-bottom: 1px solid #3b3b36; line-height: 1.6; }
+.job-grid li::before { content: "↳"; margin-right: 14px; color: #ef7957; }
+
+.project-list { border-top: 1px solid var(--ink); }
+.project {
+  display: grid;
+  grid-template-columns: 55px 1fr auto;
+  gap: 22px;
+  align-items: start;
+  padding: 38px 0;
+  border-bottom: 1px solid var(--line);
+}
+.project-number { color: var(--accent); font-size: 12px; }
+.project h3 { margin: -7px 0 11px; font-size: 29px; letter-spacing: -.04em; }
+.project p { margin: 0; max-width: 650px; color: var(--muted); line-height: 1.75; }
+.project-tag { padding: 7px 10px; border: 1px solid var(--line); border-radius: 20px; color: var(--muted); font-size: 11px; white-space: nowrap; }
+
+.stack h2 { margin-bottom: 45px; font-size: clamp(38px, 5vw, 58px); }
+.tags { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.tags li { padding: 11px 16px; border: 1px solid var(--ink); border-radius: 99px; font-size: 14px; transition: color .2s, background .2s; }
+.tags li:hover { color: var(--paper); background: var(--ink); }
+
+.footer { padding: 90px 0 45px; }
+.footer > p { margin: 0 0 90px; max-width: 600px; font-size: clamp(38px, 6vw, 74px); font-weight: 600; line-height: 1.05; letter-spacing: -.06em; }
+.footer > div { display: flex; justify-content: space-between; padding-top: 22px; border-top: 1px solid var(--ink); font-size: 12px; letter-spacing: .08em; }
+.footer a:hover { color: var(--accent); }
+
+@media (max-width: 780px) {
+  .shell { width: min(100% - 32px, 1180px); }
+  .nav { height: 72px; }
+  .nav nav { gap: 15px; font-size: 12px; }
+  .nav nav a:nth-child(2) { display: none; }
+  .hero { min-height: auto; padding: 80px 0 55px; }
+  .hero h1 { margin-bottom: 45px; }
+  .hero-bottom { align-items: stretch; flex-direction: column; }
+  .button { align-self: flex-start; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .stats div { padding: 22px 0; border-right: 0; }
+  .stats div:nth-child(odd) { border-right: 1px solid var(--line); }
+  .section { grid-template-columns: 1fr; gap: 40px; padding: 85px 0; }
+  .about .lead { margin-top: 35px; font-size: 19px; }
+  .job-heading, .job-grid { grid-template-columns: 1fr; gap: 32px; }
+  .job-heading { flex-direction: column; }
+  .project { grid-template-columns: 30px 1fr; }
+  .project-tag { display: none; }
+  .footer { padding-top: 70px; }
+  .footer > p { margin-bottom: 65px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
