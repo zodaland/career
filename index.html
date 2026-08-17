@@ -3,137 +3,81 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="개인 이력서 페이지">
-    <meta name="theme-color" content="#f4f1ea">
-    <title>Resume</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Noto+Sans+KR:wght@400;500;600;700&amp;display=swap"
-      rel="stylesheet"
-    >
+    <meta name="description" content="개인 이력서">
+    <title>이름 — 이력서</title>
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
-    <header class="nav shell">
-      <a class="wordmark" href="#top" aria-label="처음으로">NAME<span>.</span></a>
-      <nav aria-label="주요 메뉴">
-        <a href="#about">소개</a>
-        <a href="#work">경력</a>
-        <a href="#projects">프로젝트</a>
-      </nav>
-    </header>
-
-    <main id="top">
-      <section class="hero shell">
-        <p class="eyebrow">[ROLE] · [LOCATION]</p>
-        <h1>
-          나를 설명하는<br>
-          <em>한 문장</em>
-        </h1>
-        <div class="hero-bottom">
-          <p>
-            어떤 문제를 해결하는 사람인지 소개하는 짧은 문장을 입력하세요.<br>
-            일하는 방식과 강점을 한두 줄로 보여주는 영역입니다.
-          </p>
-          <a class="button" href="#contact">연락하기 <span aria-hidden="true">↗</span></a>
-        </div>
-      </section>
-
-      <section class="stats shell" aria-label="주요 수치">
-        <div><strong>00+</strong><span>Metric one</span></div>
-        <div><strong>00</strong><span>Metric two</span></div>
-        <div><strong>00 yrs</strong><span>Experience</span></div>
-        <div><strong>Keyword</strong><span>Core strength</span></div>
-      </section>
-
-      <section id="about" class="section shell about">
-        <p class="section-label">01 / ABOUT</p>
+    <main class="resume">
+      <header class="intro">
         <div>
-          <h2>나를 설명하는<br>짧은 제목</h2>
-          <p class="lead">
-            경력의 방향과 전문성을 보여주는 소개 글을 입력하세요. 어떤 제품과 문제에
-            관심이 있는지 간결하게 설명합니다.
-          </p>
-          <p>
-            업무 범위, 협업 방식, 중요하게 생각하는 기준처럼 제목에 담기 어려운 내용을
-            두세 문장으로 덧붙이는 영역입니다.
-          </p>
+          <h1>[이름]</h1>
+          <p class="role">[직무]</p>
         </div>
+        <address>
+          <a href="mailto:hello@example.com">hello@example.com</a>
+          <a href="https://github.com/username">github.com/username</a>
+        </address>
+      </header>
+
+      <p class="summary">
+        어떤 문제를 잘 해결하는 개발자인지 두세 문장으로 적습니다. 경력 전체를 설명하기보다
+        지금의 강점과 앞으로 하고 싶은 일을 간결하게 보여줍니다.
+      </p>
+
+      <section>
+        <h2>경력</h2>
+        <article class="item">
+          <div class="item-head">
+            <div>
+              <h3>[회사명]</h3>
+              <p>[직무명]</p>
+            </div>
+            <time>[2023.00 — 현재]</time>
+          </div>
+          <ul>
+            <li>맡은 문제와 해결 과정, 결과를 한 문장으로 적습니다.</li>
+            <li>직접 주도한 일과 만든 변화를 구체적으로 적습니다.</li>
+            <li>필요하면 수치로 설명할 수 있는 성과를 한 줄 덧붙입니다.</li>
+          </ul>
+        </article>
       </section>
 
-      <section id="work" class="section shell experience">
-        <p class="section-label">02 / EXPERIENCE</p>
-        <div class="experience-content">
-          <article class="job">
-            <div class="job-heading">
-              <div>
-                <h2>[회사명]</h2>
-                <p>[직무명]</p>
-              </div>
-              <time>[시작일] — [종료일]</time>
-            </div>
-            <div class="job-grid">
-              <p>회사와 제품, 맡았던 역할을 요약하는 내용을 입력하세요.</p>
-              <ul>
-                <li>문제와 해결 방법, 결과를 포함한 핵심 성과</li>
-                <li>주도한 프로젝트 또는 개선한 기능</li>
-                <li>협업 범위와 담당한 기술 영역</li>
-                <li>숫자로 설명할 수 있는 결과 또는 변화</li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="projects" class="section shell projects">
-        <p class="section-label">03 / SELECTED WORK</p>
+      <section>
+        <h2>주요 프로젝트</h2>
         <div class="project-list">
           <article class="project">
-            <span class="project-number">01</span>
             <div>
               <h3>[프로젝트 이름]</h3>
-              <p>해결한 문제, 맡은 역할, 만든 결과를 두세 문장으로 입력하세요.</p>
+              <span>[역할 · 기술]</span>
             </div>
-            <span class="project-tag">TAG · TAG</span>
+            <p>무엇을 왜 만들었고, 어떤 결과가 있었는지 두 문장 안으로 적습니다.</p>
           </article>
           <article class="project">
-            <span class="project-number">02</span>
             <div>
               <h3>[프로젝트 이름]</h3>
-              <p>기술 선택의 이유와 사용자 또는 비즈니스에 만든 변화를 입력하세요.</p>
+              <span>[역할 · 기술]</span>
             </div>
-            <span class="project-tag">TAG · TAG</span>
-          </article>
-          <article class="project">
-            <span class="project-number">03</span>
-            <div>
-              <h3>[프로젝트 이름]</h3>
-              <p>프로젝트의 범위와 직접 기여한 부분을 간결하게 입력하세요.</p>
-            </div>
-            <span class="project-tag">TAG · TAG</span>
+            <p>복잡한 구현 설명보다 직접 해결한 문제와 기여한 부분을 적습니다.</p>
           </article>
         </div>
       </section>
 
-      <section class="section shell stack">
-        <p class="section-label">04 / TOOLBOX</p>
+      <section class="details">
         <div>
-          <h2>주로 사용하는 기술</h2>
-          <ul class="tags">
-            <li>Skill 01</li><li>Skill 02</li><li>Skill 03</li><li>Skill 04</li>
-            <li>Skill 05</li><li>Skill 06</li><li>Skill 07</li><li>Skill 08</li>
-          </ul>
+          <h2>기술</h2>
+          <p>[React, TypeScript, Django, AWS]</p>
+        </div>
+        <div>
+          <h2>학력</h2>
+          <p>[학교 · 전공 · 졸업 연도]</p>
         </div>
       </section>
-    </main>
 
-    <footer id="contact" class="footer shell">
-      <p>함께 이야기해요.</p>
-      <div>
-        <span>© [YEAR] [NAME]</span>
-        <a href="#top">[CONTACT LINK] ↗</a>
-      </div>
-    </footer>
+      <footer>
+        <span>마지막 업데이트 [2026.00]</span>
+        <a href="mailto:hello@example.com">연락하기</a>
+      </footer>
+    </main>
   </body>
 </html>
