@@ -93,15 +93,13 @@ header img {
 }
 
 .profile-links a {
-  display: inline-flex;
-  align-items: center;
-  gap: 1.5mm;
+  display: grid;
+  width: 5mm;
+  height: 5mm;
+  place-items: center;
   color: #444;
-  font-size: 8pt;
-  font-weight: 500;
 }
 
-.profile-links a::after { content: attr(aria-label); }
 .profile-links svg { width: 3.8mm; height: 3.8mm; fill: currentColor; }
 
 .resume > section:not(.intro) {
@@ -269,17 +267,5 @@ li strong { color: #1d1d1d; font-weight: 500; }
   .resume > section:not(.intro) { break-before: auto; }
   .experience-heading, .scope, h4 { break-after: avoid-page; }
   .work-block, .skills, .education { break-inside: avoid-page; }
-  .page-two-start { break-before: page; }
-  .page-two-start::before {
-    display: block;
-    margin-bottom: 6mm;
-    padding-bottom: 3mm;
-    border-bottom: .25mm solid #c5c5c1;
-    color: #555;
-    content: "AvoMD  ·  Full-stack Engineer  ·  2023.11 – 현재";
-    font-size: 8.2pt;
-    font-weight: 500;
-    letter-spacing: .01em;
-  }
   a[href] { text-decoration: none; }
 }
