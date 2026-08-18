@@ -63,7 +63,7 @@ header img {
 .section-title {
   margin: 0;
   color: #555;
-  font-size: 8.5pt;
+  font-size: 8.7pt;
   font-weight: 600;
   letter-spacing: .08em;
 }
@@ -156,12 +156,12 @@ header img {
   break-after: avoid;
 }
 
-.scope > strong { font-size: 8.6pt; font-weight: 500; }
+.scope > strong { font-size: 8.6pt; font-weight: 400; }
 .scope p { margin: 0; color: #666; font-size: 8pt; }
 .scope p::before { margin-right: 3mm; color: #aaa; content: "/"; }
 
 .work-block { break-inside: avoid; }
-.work-block + .work-block { margin-top: 5mm; }
+.work-block + .work-block { margin-top: 5.5mm; }
 
 h4 {
   margin: 0 0 2.2mm;
@@ -173,7 +173,7 @@ h4 {
 
 ul {
   display: grid;
-  gap: 1.35mm;
+  gap: 1.6mm;
   margin: 0;
   padding-left: 4.5mm;
 }
@@ -181,28 +181,29 @@ ul {
 li {
   padding-left: .8mm;
   color: #41413e;
-  font-size: 8.7pt;
-  line-height: 1.6;
+  font-size: 8.9pt;
+  line-height: 1.65;
   word-break: keep-all;
 }
 
 li::marker { color: #777; font-size: .8em; }
-li strong { color: #1d1d1d; font-weight: 500; }
+strong,
+li strong { color: inherit; font-weight: 400; }
 
 .skills {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 4.5mm 9mm;
+  gap: 5.5mm 11mm;
 }
 
 .skills p {
   margin: 0;
   color: #555;
-  font-size: 8.7pt;
-  line-height: 1.65;
+  font-size: 9pt;
+  line-height: 1.75;
 }
 
-.skills strong { color: #222; font-weight: 600; }
+.skills strong { color: #171717; font-weight: 700; }
 
 .education {
   display: grid;
@@ -265,7 +266,7 @@ li strong { color: #1d1d1d; font-weight: 500; }
 
   .profile-links a { color: #222; }
   .resume > section:not(.intro) { break-before: auto; }
-  .experience-heading, .scope, h4 { break-after: avoid-page; }
+  .section-title, .experience-heading, .scope, h4 { break-after: avoid-page; }
   .work-block, .skills, .education { break-inside: avoid-page; }
   a[href] { text-decoration: none; }
 }

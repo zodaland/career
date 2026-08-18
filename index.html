@@ -28,11 +28,10 @@
         <p class="intro-label">소개</p>
         <h2 id="intro-title">Full-stack Engineer · Healthcare, AI &amp; Data Systems</h2>
         <p>
-          의료·AI 제품과 도메인·DNS 서비스를 개발했으며, 두 회사에서 노코드 제품 개발을 경험했습니다.
-          복잡한 데이터와 외부 시스템을 사용자가 필요로 하는 기능으로 연결하고, 코드로 구현되던 논리와
-          흐름을 사용자가 직접 구성할 수 있도록 풀어왔습니다. 현재는 의료진의 실제 사용 환경과 비즈니스 가치를
-          고려해, EHR 데이터와 AI를 활용한 임상 의사결정 지원 시스템(Clinical Decision Support System,
-          CDSS)을 설계·개발합니다. 실제 데이터로 효과를 측정하고 운영 과정에서 반복적으로 검증하며 제품을 개선합니다.
+          의료 데이터와 외부 시스템 연계를 개발해 온 엔지니어입니다. 현재는 Epic의 FHIR R4 데이터와 C-CDA 문서를
+          수집·정규화하는 파이프라인을 만들고, 이를 임상 의사결정 지원 시스템(CDSS)에 연결합니다.
+          이전에는 RFC 5730(EPP) 기반 다기관 연동 시스템을 통합 설계했습니다. 표준 스펙을 읽어 상호운용 계층으로
+          구현하고, 기관마다 다른 데이터 구조와 코드 체계의 차이를 흡수하는 일을 해왔습니다.
         </p>
         <nav class="profile-links" aria-label="외부 프로필">
           <a href="https://github.com/zodaland" target="_blank" rel="noreferrer" aria-label="GitHub">
@@ -66,24 +65,39 @@
           </div>
           <div class="scope">
             <strong>EHR·AI 기반 임상 의사결정 지원 시스템(CDSS)</strong>
-            <p>제품 설계 · 개발 · 운영</p>
+            <p>웹 앱 · Django API · EHR 데이터 파이프라인 · 크롬 익스텐션</p>
           </div>
 
           <div class="work-block">
-            <h4>EHR Push-to-Talk</h4>
+            <h4>EHR / FHIR 데이터 파이프라인</h4>
             <ul>
-              <li>크롬 익스텐션과 Django API, 실시간 STT를 연결해 EHR 입력창에서 바로 쓸 수 있는 Push-to-Talk 기능을 개발하고 PoC 이후 서비스에 적용</li>
-              <li>실제 오류 사례로 만든 동일 평가 데이터셋으로 STT 모델을 비교·교체해 내부 평가에서 단어 오류율을 50% 이상 낮추고 약물명 인식률 개선</li>
-              <li>EHR마다 다른 입력 방식을 어댑터로 분리하고 환경별 회귀 테스트를 추가해 문장 중복과 누락 방지</li>
+              <li>브라우저에서 수행하던 EHR 데이터 수집·캐시를 <strong>서버·Lambda 기반 FHIR 데이터 파이프라인</strong>으로 이관. 상태 관리와 데이터 처리를 분리해 환자 단위 실패를 격리하고 배치 처리 안정성을 개선</li>
+              <li>demographics, problems, allergies, labs, vitals, medications, notes, radiology 등 <strong>FHIR 데이터 8종을 리소스별 정규화 모듈로 구성</strong>하고, <code>Coding</code> 처리와 코드 시스템을 공통화. <strong>US Core race/ethnicity Extension</strong>을 파싱해 내부 데이터 모델로 변환</li>
+              <li>임상 수치 변수를 FHIR <code>Observation</code>에 연결하는 <strong>Terminology Binding 로직을 LOINC 코드 → 텍스트 → 정규식 우선순위로 구성</strong>하고, 기존 웹 앱의 매칭 로직을 서버 파이프라인으로 이식</li>
+              <li>C-CDA 파서를 추가해 외부 기관의 임상 문서를 FHIR 데이터와 동일한 내부 형식으로 정규화하고, 문서 유형을 <strong>LOINC 코드</strong>에 매핑</li>
+              <li>radiology가 참조하는 <code>Observation</code>이 FHIR Bundle에서 누락되는 케이스를 분석해, 일괄 조회 후 누락 리소스만 개별 재조회하는 fallback을 구현</li>
+              <li>로그의 환자 식별자를 작업 ID로 대체하고 FHIR URL의 식별자를 마스킹해 의료 데이터 파이프라인의 운영 로그에서 PHI 노출을 방지</li>
             </ul>
           </div>
 
           <div class="work-block">
-            <h4>Population Health 데이터 파이프라인</h4>
+            <h4>Epic / SMART on FHIR 연동</h4>
             <ul>
-              <li>브라우저에서 처리하던 FHIR 데이터 수집과 캐시를 서버로 옮기고 검사, 투약, 임상 노트를 공통 포맷으로 정규화</li>
-              <li>FHIR·C-CDA 수집 경로를 통합하고 환자 목록 수집, 데이터 정규화, 조건 판정을 연결해 여러 환자를 일괄 평가할 수 있는 처리 흐름 구축</li>
-              <li>동일 임상 데이터로 기존 웹 앱과 신규 파이프라인 결과를 교차 검증하고, 환자별 작업을 분리해 부분 실패가 전체 처리로 전파되지 않도록 처리</li>
+              <li><strong>Epic SMART on FHIR의 launch·OAuth·token 흐름을 코드 레벨로 분석</strong>하고, 인증 이후 브라우저에서 수행하던 Epic FHIR 조회를 서버·Lambda로 이관. FHIR client와 credential 처리 경로를 공통화</li>
+              <li>사용 중인 Epic SMART 연동에서 refresh token이 발급되지 않는 제약을 고려해 access token 만료 시간을 검증하고, <strong>잔여 시간이 10분 미만이면 배치를 시작하지 않도록 사전 차단</strong></li>
+              <li>환자 목록을 <strong>Epic Schedule API</strong>로 우선 조회하고 실패 시 FHIR 기반 조회로 전환하는 fallback을 구성해 Epic 환경의 환자 데이터 조회 경로를 안정화</li>
+              <li><code>DocumentReference</code>와 분리된 임상 노트 본문을 <strong>FHIR Binary Resource</strong>에서 조회하는 경로를 추가하고, Binary 조회 과정의 외부 redirect를 EHR 서버 기준으로 제한</li>
+              <li>AI 처방 제안을 팀별 Epic 오더 카탈로그와 대조해 추천 목록을 생성하고, 의료진 확정 시 <strong>Epic AGL 채널을 통해 실제 오더로 전달</strong>하는 기능을 구현</li>
+            </ul>
+          </div>
+
+          <div class="work-block">
+            <h4>FHIR 테스트 데이터 구축 및 검증</h4>
+            <ul>
+              <li>공식 MIMIC-IV on FHIR 데이터에 notes·radiology·allergies 리소스가 부족해, MIMIC-III 원본 데이터 기반의 FHIR R4 테스트 fixture를 생성</li>
+              <li>환자 100명의 FHIR Bundle을 Python으로 변환하고, HL7 FHIR Validator로 R4 규격 준수 여부를 검증</li>
+              <li>기존 웹 앱과 신규 서버 파이프라인의 정규화 결과를 <strong>FHIR Resource별 cross-validation</strong>으로 비교해 migration regression을 검증</li>
+              <li>동일한 terminology 규칙에서도 <code>Observation</code>의 coding 해석 위치 차이로 서로 다른 heart rate 값이 선택되는 문제를 발견하고 재현 케이스를 테스트에 고정</li>
             </ul>
           </div>
 
@@ -92,16 +106,24 @@
             <ul>
               <li>AI 임상 제안을 문장별로 수락·거절·수정하고 선택한 내용만 EHR에 반영하는 기능을 MVP로 시작해 서비스에 적용</li>
               <li>검토 상태를 세션에 보존해 재접속 후에도 작업을 이어갈 수 있도록 하고, 복원 과정의 중복 AI 요청·이벤트 실행 방지</li>
-              <li>Structured Outputs로 비정형 임상 문서를 typed data로 변환해 계산과 조건 판정에 재사용</li>
-              <li>여러 LLM 공급자를 공통 인터페이스로 묶어 모델 교체가 기존 기능에 영향을 주지 않도록 설계</li>
+              <li>Structured Outputs로 비정형 임상 문서를 typed data로 변환하고, OpenAI와 AWS Bedrock을 공통 인터페이스로 묶어 모델 교체가 기존 기능에 영향을 주지 않도록 설계</li>
             </ul>
           </div>
 
           <div class="work-block">
             <h4>노코드 임상 규칙</h4>
             <ul>
-              <li>비개발자가 빌더에서 검사·투약 조건을 직접 만들고 수정할 수 있도록 json-logic 기반 Rules Engine 확장</li>
-              <li>빌더에서 설정한 조건을 실제 EHR 데이터에 적용해 고객별 임상 로직을 코드 수정 없이 구성</li>
+              <li>비개발자가 빌더에서 lab·medication 조건을 직접 만들고 수정할 수 있도록 json-logic 기반 Rules Engine 확장</li>
+              <li>수치 추세, 용량 비교, 단위 변환, 투약 상태·기간 판정을 커스텀 연산자로 구현해 고객별 임상 로직을 코드 수정 없이 구성</li>
+            </ul>
+          </div>
+
+          <div class="work-block">
+            <h4>EHR Push-to-Talk</h4>
+            <ul>
+              <li>크롬 익스텐션과 Django API, 실시간 STT를 연결해 EHR 입력창에서 바로 쓸 수 있는 Push-to-Talk 기능을 개발하고 PoC 이후 서비스에 적용</li>
+              <li>실제 오류 사례로 만든 동일 평가 데이터셋으로 STT 모델을 비교·교체해 내부 평가에서 단어 오류율을 50% 이상 낮춤</li>
+              <li>EHR마다 다른 입력 방식을 어댑터로 분리하고 환경별 회귀 테스트를 추가해 문장 중복과 누락 방지</li>
             </ul>
           </div>
 
@@ -121,19 +143,18 @@
               <h3>커넥트웨이브</h3>
               <span>Web Developer</span>
             </div>
-            <p><strong>2020.04 – 2023.08</strong></p>
+            <p><strong>2020.04 – 2023.10</strong></p>
           </div>
           <div class="scope">
-            <strong>다나와·에누리·메이크샵 등을 운영하는 이커머스 전문기업</strong>
-            <p>도메인 코어 시스템 · 뉴 메이크샵 백엔드 기반 구축</p>
+            <strong>도메인 네임 시스템의 백엔드·웹 서비스 개발 및 운영</strong>
+            <p>도메인 코어 시스템 통합</p>
           </div>
           <ul>
-            <li>23개 레거시 통신 모듈을 단일 도메인 코어 시스템으로 재설계하고 설계·개발·배포 주도</li>
-            <li>RFC 5730(EPP) 기반 11개 외부 서버 연동과 내부 TCP 통신·외부 REST API를 공통 구조로 구현</li>
-            <li>세션 풀과 병렬 처리를 도입해 평균 응답 성능을 43.31%, 초당 처리량을 93% 개선</li>
+            <li>RFC 5730(EPP)에 따라 11개 외부 서버와의 통신을 구현하고, 서버마다 다른 확장과 응답 구조를 공통 인터페이스로 흡수</li>
+            <li>23개 레거시 통신 모듈을 단일 도메인 코어 시스템으로 통합하고 설계·개발·배포 주도. 내부 TCP 통신과 외부 REST API를 같은 구조 위에 통합</li>
+            <li>세션 풀과 병렬 처리를 도입해 평균 응답 속도를 43.31%, 초당 처리량을 93% 개선</li>
             <li>인덱스·쿼리 튜닝으로 DNS 웹 서비스의 평균 로딩 시간을 1.51초에서 0.35초로 단축</li>
             <li>수동 DNS 부가 기능과 분산된 레거시 코드를 통합·자동화해 운영·개발팀의 반복 업무 축소</li>
-            <li>판매자가 쇼핑몰을 구축·운영하는 이커머스 솔루션 <strong>뉴 메이크샵</strong>의 기술 스택 검토와 초기 백엔드 공통 기반 구축</li>
           </ul>
         </article>
       </section>
@@ -141,11 +162,12 @@
       <section aria-labelledby="skills-title">
         <h2 id="skills-title" class="section-title">기술 스택</h2>
         <div class="skills">
-          <p><strong>Backend</strong><br>Python · Django · Java · Spring Boot · PostgreSQL · MySQL · PHP</p>
+          <p><strong>Healthcare Standards</strong><br>HL7 FHIR R4 · SMART on FHIR · US Core · C-CDA · LOINC · Epic · MEDITECH</p>
+          <p><strong>Backend</strong><br>Python · Django · Java · Spring Boot · PostgreSQL · MySQL</p>
+          <p><strong>Data &amp; Infra</strong><br>AWS · Docker · Linux · Nginx</p>
+          <p><strong>AI</strong><br>OpenAI API · AWS Bedrock</p>
           <p><strong>Frontend</strong><br>TypeScript · React · Next.js</p>
-          <p><strong>AI &amp; Healthcare</strong><br>OpenAI API · AWS Bedrock · HL7 · FHIR R4 · C-CDA</p>
-          <p><strong>Domain &amp; Protocols</strong><br>EPP (RFC 5730) · DNS</p>
-          <p><strong>Systems &amp; Platform</strong><br>AWS · Linux · Docker · Nginx</p>
+          <p><strong>Protocols</strong><br>EPP (RFC 5730) · DNS</p>
         </div>
       </section>
 
