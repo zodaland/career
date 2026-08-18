@@ -1,94 +1,285 @@
 :root {
-  color: #1c1c1a;
-  background: #f7f7f5;
-  font-family: Inter, "Noto Sans KR", sans-serif;
+  color: #171717;
+  background: #fff;
+  --section-space: 9mm;
+  --heading-space: 4mm;
+  font-family: Inter, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
   font-synthesis: none;
+  font-variant-numeric: tabular-nums;
 }
 
 * { box-sizing: border-box; }
-body { margin: 0; background: #f7f7f5; }
-a { color: inherit; }
+
+html {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
 .resume {
-  width: min(840px, calc(100% - 48px));
-  margin: 0 auto;
-  padding-bottom: 80px;
+  width: 210mm;
+  margin: 12mm auto;
+  padding: 15mm 17mm 18mm;
+  background: #fff;
 }
 
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 56px 0 44px;
-  border-bottom: 1px solid #d6d6d1;
+  padding: 0 0 var(--section-space);
+  border-bottom: .25mm solid #b9b9b5;
 }
 
-header h1 { margin: 0; font-size: 30px; font-weight: 600; letter-spacing: -.04em; }
-header p { margin: 8px 0 0; color: #666; font-size: 14px; }
-header img { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; }
+header h1 {
+  margin: 0;
+  font-size: 21pt;
+  font-weight: 600;
+  letter-spacing: -.045em;
+  line-height: 1;
+}
 
-.intro { padding: 56px 0 72px; }
-.intro-label { margin: 0 0 20px; color: #555; font-size: 14px; font-weight: 600; letter-spacing: -.01em; }
-.intro h2 { margin: 0 0 24px; font-size: clamp(22px, 3.4vw, 30px); font-weight: 500; line-height: 1.25; letter-spacing: -.04em; white-space: nowrap; }
-.intro p { max-width: 760px; margin: 0 0 24px; color: #555; font-size: 15px; line-height: 1.8; }
-.profile-links { display: flex; gap: 16px; margin-top: 24px; }
-.profile-links a { display: grid; width: 24px; height: 24px; place-items: center; color: #444; transition: color .2s, transform .2s; }
-.profile-links a:hover { color: #000; transform: translateY(-2px); }
-.profile-links svg { width: 20px; height: 20px; fill: currentColor; }
+header img {
+  width: 20mm;
+  height: 20mm;
+  border-radius: 50%;
+  object-fit: cover;
+}
 
-.resume > section:not(.intro) { padding: 72px 0; border-top: 1px solid #bdbdb7; }
-.section-title { margin: 0 0 38px; color: #555; font-size: 14px; font-weight: 600; letter-spacing: -.01em; }
+.intro {
+  padding: var(--section-space) 0;
+}
 
-.experience + .experience { margin-top: 96px; }
-.experience-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.company-title { display: flex; align-items: center; gap: 16px; }
-.experience-heading h3 { margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -.03em; }
-.company-title span { padding-left: 16px; border-left: 1px solid #c7c7c1; color: #666; font-size: 13px; }
-.experience-heading p { margin: 0; color: #777; font-size: 14px; }
-.scope { display: flex; align-items: baseline; gap: 14px; margin: 22px 0 42px; color: #666; }
-.scope > strong { font-size: 14px; font-weight: 500; }
-.scope p { margin: 0; color: #777; font-size: 13px; }
-.scope p::before { margin-right: 14px; color: #bbb; content: "/"; }
+.intro-label,
+.section-title {
+  margin: 0;
+  color: #555;
+  font-size: 8.5pt;
+  font-weight: 600;
+  letter-spacing: .08em;
+}
 
-.work-block + .work-block { margin-top: 36px; }
-h4 { margin: 0 0 16px; font-size: 17px; font-weight: 600; }
-ul { display: grid; gap: 10px; margin: 0; padding-left: 20px; }
-li { padding-left: 4px; color: #4f4f4a; font-size: 14px; line-height: 1.75; }
-li::marker { color: #999; }
-li strong { color: #222; font-weight: 500; }
+.intro h2 {
+  margin: 0 0 3.5mm;
+  font-size: 15.5pt;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -.035em;
+}
 
-.skills p { margin: 0 0 22px; color: #666; font-size: 14px; line-height: 1.7; }
-.skills p:last-child { margin-bottom: 0; }
-.skills strong { color: #222; font-weight: 500; }
+.intro p {
+  margin: 0;
+  color: #454545;
+  font-size: 9pt;
+  line-height: 1.68;
+  word-break: keep-all;
+}
 
-.education { display: grid; gap: 32px; }
-.education-heading { display: flex; align-items: center; gap: 14px; }
-.education h3 { margin: 0; font-size: 17px; font-weight: 500; }
-.education-heading span { padding-left: 14px; border-left: 1px solid #c7c7c1; color: #666; font-size: 13px; }
-.education p { margin: 8px 0 0; color: #666; font-size: 13px; }
+.intro p.intro-label { margin-bottom: var(--heading-space); }
 
-@media (max-width: 600px) {
-  .resume { width: min(100% - 32px, 840px); padding-bottom: 56px; }
-  header { padding: 40px 0 32px; }
-  header img { width: 72px; height: 72px; }
-  .intro { padding: 44px 0 56px; }
-  .intro h2 { font-size: clamp(24px, 7vw, 28px); white-space: normal; }
-  .resume > section:not(.intro) { padding: 56px 0; }
-  .experience-heading { align-items: flex-start; flex-direction: column; gap: 14px; }
-  .company-title { align-items: flex-start; flex-direction: column; gap: 8px; }
-  .company-title span { padding-left: 0; border-left: 0; }
-  .experience-heading p { margin-top: 0; }
-  .scope { align-items: flex-start; flex-direction: column; gap: 6px; }
+.profile-links {
+  display: flex;
+  gap: 4mm;
+  margin-top: 3.5mm;
+}
+
+.profile-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5mm;
+  color: #444;
+  font-size: 8pt;
+  font-weight: 500;
+}
+
+.profile-links a::after { content: attr(aria-label); }
+.profile-links svg { width: 3.8mm; height: 3.8mm; fill: currentColor; }
+
+.resume > section:not(.intro) {
+  padding: var(--section-space) 0 0;
+  border-top: .25mm solid #aaa;
+}
+
+.resume > section:not(.intro) + section { margin-top: var(--section-space); }
+.section-title { margin-bottom: var(--heading-space); }
+
+.experience + .experience { margin-top: 12mm; }
+
+.experience-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6mm;
+  break-after: avoid;
+}
+
+.company-title {
+  display: flex;
+  align-items: baseline;
+  gap: 3.5mm;
+}
+
+.experience-heading h3 {
+  margin: 0;
+  font-size: 15pt;
+  font-weight: 600;
+  letter-spacing: -.035em;
+}
+
+.company-title span {
+  padding-left: 3.5mm;
+  border-left: .25mm solid #c5c5c1;
+  color: #555;
+  font-size: 8.3pt;
+}
+
+.experience-heading p {
+  margin: 0;
+  color: #666;
+  font-size: 8.5pt;
+  white-space: nowrap;
+}
+
+.scope {
+  display: flex;
+  align-items: baseline;
+  gap: 3mm;
+  margin: 2.5mm 0 5.5mm;
+  color: #555;
+  break-after: avoid;
+}
+
+.scope > strong { font-size: 8.6pt; font-weight: 500; }
+.scope p { margin: 0; color: #666; font-size: 8pt; }
+.scope p::before { margin-right: 3mm; color: #aaa; content: "/"; }
+
+.work-block { break-inside: avoid; }
+.work-block + .work-block { margin-top: 5mm; }
+
+h4 {
+  margin: 0 0 2.2mm;
+  font-size: 10.3pt;
+  font-weight: 600;
+  line-height: 1.3;
+  break-after: avoid;
+}
+
+ul {
+  display: grid;
+  gap: 1.35mm;
+  margin: 0;
+  padding-left: 4.5mm;
+}
+
+li {
+  padding-left: .8mm;
+  color: #41413e;
+  font-size: 8.7pt;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+li::marker { color: #777; font-size: .8em; }
+li strong { color: #1d1d1d; font-weight: 500; }
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4.5mm 9mm;
+}
+
+.skills p {
+  margin: 0;
+  color: #555;
+  font-size: 8.7pt;
+  line-height: 1.65;
+}
+
+.skills strong { color: #222; font-weight: 600; }
+
+.education {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9mm;
+}
+
+.education-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 3mm;
+}
+
+.education h3 { margin: 0; font-size: 10.5pt; font-weight: 600; }
+
+.education-heading span {
+  padding-left: 3mm;
+  border-left: .25mm solid #c5c5c1;
+  color: #555;
+  font-size: 8pt;
+}
+
+.education p { margin: 1.5mm 0 0; color: #666; font-size: 8pt; }
+
+@media screen and (max-width: 210mm) {
+  .resume {
+    width: 100%;
+    margin: 0;
+    padding: 10mm;
+    box-shadow: none;
+  }
+
+  .intro h2 { font-size: 14pt; }
+  .experience-heading { align-items: flex-start; flex-direction: column; gap: 2mm; }
+  .company-title { flex-wrap: wrap; }
+  .scope { align-items: flex-start; flex-direction: column; gap: 1.5mm; }
   .scope p::before { display: none; }
-  .experience + .experience { margin-top: 76px; }
-  .education-heading { align-items: flex-start; flex-direction: column; gap: 6px; }
-  .education-heading span { padding-left: 0; border-left: 0; }
+  .skills, .education { grid-template-columns: 1fr; }
+}
+
+@page {
+  size: A4;
+  margin: 14mm 17mm 16mm;
 }
 
 @media print {
-  :root, body { color: #111; background: #fff; }
-  .resume { width: 100%; padding: 0; }
-  header { padding: 36px 0; }
-  .intro { padding: 40px 0; }
-  .resume > section:not(.intro) { padding: 40px 0; break-inside: avoid; }
+  :root,
+  body {
+    width: auto;
+    min-width: 0;
+    background: #fff;
+  }
+
+  .resume {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .profile-links a { color: #222; }
+  .resume > section:not(.intro) { break-before: auto; }
+  .experience-heading, .scope, h4 { break-after: avoid-page; }
+  .work-block, .skills, .education { break-inside: avoid-page; }
+  .page-two-start { break-before: page; }
+  .page-two-start::before {
+    display: block;
+    margin-bottom: 6mm;
+    padding-bottom: 3mm;
+    border-bottom: .25mm solid #c5c5c1;
+    color: #555;
+    content: "AvoMD  ·  Full-stack Engineer  ·  2023.11 – 현재";
+    font-size: 8.2pt;
+    font-weight: 500;
+    letter-spacing: .01em;
+  }
+  a[href] { text-decoration: none; }
 }
