@@ -1,4 +1,2 @@
-# Local resume source files
-*.md
-*.markdown
-*.pdf
+# Local career source and generated documents
+/career-data/
